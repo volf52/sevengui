@@ -1,18 +1,9 @@
-# sv
+# 7GUI Tasks in Svelte/Sveltekit
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Tasks
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
+- [Counter](./src/routes/counter)
+- [Temperature Converter](./src/routes/temperature)
 
 ## Developing
 
@@ -34,5 +25,3 @@ npm run build
 ```
 
 You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.

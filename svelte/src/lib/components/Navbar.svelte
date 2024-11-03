@@ -3,7 +3,8 @@
 
 	const navItems = [
 		{ name: 'Home', path: '/' },
-		{ name: 'Counter', path: '/counter' }
+		{ name: 'Counter', path: '/counter' },
+		{ name: 'Temperature Converter', path: '/temperature' }
 	];
 </script>
 
@@ -13,7 +14,7 @@
 			{#each navItems as item (item.path)}
 				<a
 					role="tab"
-					class={`tab prose px-10 ${$page.url.pathname === item.path ? 'tab-active' : ''}`}
+					class={`prose tab px-10 ${$page.url.pathname === item.path ? 'tab-active' : ''}`}
 					href={item.path}><h4>{item.name}</h4></a
 				>
 			{/each}
