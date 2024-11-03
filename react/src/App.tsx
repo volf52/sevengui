@@ -7,6 +7,7 @@ import {
   Tabs,
 } from "@mantine/core"
 import Counter from "./components/Counter"
+import TemperatureConverter from "./components/Temperature"
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
             <Tabs.List justify="center">
               <Tabs.Tab value="home">Home</Tabs.Tab>
               <Tabs.Tab value="counter">Counter</Tabs.Tab>
+              <Tabs.Tab value="temperature">Temperature</Tabs.Tab>
             </Tabs.List>
 
             <Container fluid style={{ overflow: "hidden" }}>
@@ -30,6 +32,9 @@ const App = () => {
                 </Tabs.Panel>
                 <Tabs.Panel value="counter">
                   <Counter />
+                </Tabs.Panel>
+                <Tabs.Panel value="temperature">
+                  <TemperatureConverter />
                 </Tabs.Panel>
               </Center>
             </Container>
