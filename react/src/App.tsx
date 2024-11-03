@@ -1,4 +1,5 @@
 import "@mantine/core/styles.css"
+import "@mantine/dates/styles.css"
 import {
   AppShell,
   Center,
@@ -8,6 +9,7 @@ import {
 } from "@mantine/core"
 import Counter from "./components/Counter"
 import TemperatureConverter from "./components/Temperature"
+import FlightBooker from "./components/FlightBooker"
 
 const App = () => {
   return (
@@ -23,6 +25,7 @@ const App = () => {
               <Tabs.Tab value="home">Home</Tabs.Tab>
               <Tabs.Tab value="counter">Counter</Tabs.Tab>
               <Tabs.Tab value="temperature">Temperature</Tabs.Tab>
+              <Tabs.Tab value="flight">Flight Booker</Tabs.Tab>
             </Tabs.List>
 
             <Container fluid style={{ overflow: "hidden" }}>
@@ -35,6 +38,9 @@ const App = () => {
                 </Tabs.Panel>
                 <Tabs.Panel value="temperature">
                   <TemperatureConverter />
+                </Tabs.Panel>
+                <Tabs.Panel value="flight">
+                  <FlightBooker />
                 </Tabs.Panel>
               </Center>
             </Container>
