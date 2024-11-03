@@ -6,6 +6,7 @@ import {
   MantineProvider,
   Tabs,
 } from "@mantine/core"
+import Counter from "./components/Counter"
 
 const App = () => {
   return (
@@ -27,7 +28,9 @@ const App = () => {
                 <Tabs.Panel value="home">
                   Work on the 7GUI tasks with React
                 </Tabs.Panel>
-                <Tabs.Panel value="counter">Counter</Tabs.Panel>
+                <Tabs.Panel value="counter">
+                  <Counter />
+                </Tabs.Panel>
               </Center>
             </Container>
           </Tabs>
