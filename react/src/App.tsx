@@ -10,7 +10,7 @@ import {
 import Counter from "./components/Counter"
 import TemperatureConverter from "./components/Temperature"
 import FlightBooker from "./components/FlightBooker"
-import Timer from "./components/Timer"
+import Timer from "./components/Timerv1"
 
 const App = () => {
   return (
