@@ -13,12 +13,19 @@ const FlightBooker = () => {
   const [val, setVal] = useState(ONE_WAY)
   const isOneWay = useMemo(() => val === ONE_WAY, [val])
   const [fromDate, setFromDate] = useState<Date | null>(null)
+  const [returnDate, setReturnDate] = useState<Date | null>(null)
 
-  const calcMinReturnDate = useCallback(() => {
+  const minRetDate = useMemo(() => {
     if (fromDate === null) return
 
     return dayjs(fromDate).add(1, "day").toDate()
   }, [fromDate])
+
+  const isInvalid = useMemo(() => {
+    if (!returnDate || !minRetDate) return false
+
+    return returnDate.getTime() < minRetDate.getTime()
+  }, [returnDate, minRetDate])
 
   return (
     <Fieldset py="lg">
@@ -41,9 +48,12 @@ const FlightBooker = () => {
       <DateInput
         clearable
         mt="sm"
-        minDate={calcMinReturnDate()}
+        value={returnDate}
+        onChange={(e) => setReturnDate(e)}
+        minDate={minRetDate}
         placeholder={isOneWay ? "Return (N/A)" : "Return"}
         disabled={isOneWay}
+        error={isInvalid ? "Please enter a valid return date" : undefined}
       />
     </Fieldset>
   )
