@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Container from '$lib/components/Container.svelte';
 	import dayjs from 'dayjs';
 
 	const opts = [

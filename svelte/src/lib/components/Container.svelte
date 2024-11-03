@@ -9,7 +9,7 @@
 </script>
 
 <div
-	class={`grid grid-cols-${cols || 1} gap-y-4 rounded-lg border border-gray-300 p-5 shadow shadow-blue-500`}
+	class={`grid grid-cols-${cols || 1} gap-4 rounded-lg border border-gray-300 p-5 shadow shadow-blue-500`}
 >
 	{@render children()}
 </div>
