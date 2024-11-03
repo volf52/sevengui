@@ -11,6 +11,7 @@ import Counter from "./components/Counter"
 import TemperatureConverter from "./components/Temperature"
 import FlightBooker from "./components/FlightBooker"
 import Timer from "./components/Timerv1"
+import CRUD from "./components/CRUD"
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
               <Tabs.Tab value="temperature">Temperature</Tabs.Tab>
               <Tabs.Tab value="flight">Flight Booker</Tabs.Tab>
               <Tabs.Tab value="timer">Timer</Tabs.Tab>
+              <Tabs.Tab value="crud">CRUD</Tabs.Tab>
             </Tabs.List>
 
             <Container fluid style={{ overflow: "hidden" }}>
@@ -46,6 +48,9 @@ const App = () => {
                 </Tabs.Panel>
                 <Tabs.Panel value="timer">
                   <Timer />
+                </Tabs.Panel>
+                <Tabs.Panel value="crud">
+                  <CRUD />
                 </Tabs.Panel>
               </Center>
             </Container>
