@@ -5,7 +5,8 @@
 		{ name: 'Home', path: '/' },
 		{ name: 'Counter', path: '/counter' },
 		{ name: 'Temperature Converter', path: '/temperature' },
-		{ name: 'Flight Booker', path: '/flight' }
+		{ name: 'Flight Booker', path: '/flight' },
+		{ name: 'Timer', path: '/timer' }
 	];
 </script>
 
