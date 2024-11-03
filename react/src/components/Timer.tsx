@@ -7,65 +7,57 @@ import {
   Button,
   Center,
 } from "@mantine/core"
-import {
-  type FC,
-  useEffect,
-  useMemo,
-  useState,
-  forwardRef,
-  useImperativeHandle,
-  useRef,
-  useCallback,
-} from "react"
+import { type FC, useEffect, useMemo, useState } from "react"
 
-const TimerDisplay = forwardRef<() => void, { duration: number }>(
-  ({ duration }, ref) => {
-    const [elapsed, setElapsed] = useState(0)
-    const percentage = useMemo(
-      () => (elapsed * 100) / duration,
-      [elapsed, duration],
-    )
+interface TimerDisplayProps {
+  duration: number
+  reset: boolean
+}
 
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setElapsed((val) => val + 0.1)
-      }, 100)
+const TimerDisplay: FC<TimerDisplayProps> = ({ duration, reset }) => {
+  const [elapsed, setElapsed] = useState(0)
+  const percentage = useMemo(
+    () => (elapsed * 100) / duration,
+    [elapsed, duration],
+  )
 
-      return () => clearInterval(interval)
-    }, [])
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setElapsed((val) => val + 0.1)
+    }, 100)
 
-    const resetTimer = useCallback(() => {
-      setElapsed(0)
-    }, [])
+    return () => clearInterval(interval)
+  }, [])
 
-    useImperativeHandle(ref, () => resetTimer)
+  useEffect(() => {
+    setElapsed(0)
+  }, [reset])
 
-    return (
-      <>
-        <Group variant="label" grow wrap="nowrap">
-          Elapsed:
-          <Progress
-            my={16}
-            value={percentage}
-            size="lg"
-            miw={400}
-            transitionDuration={200}
-          />
-        </Group>
+  return (
+    <>
+      <Group variant="label" grow wrap="nowrap">
+        Elapsed:
+        <Progress
+          my={16}
+          value={percentage}
+          size="lg"
+          miw={400}
+          transitionDuration={200}
+        />
+      </Group>
 
-        <Text>{elapsed.toFixed(2)} s</Text>
-      </>
-    )
-  },
-)
+      <Text>{elapsed.toFixed(2)} s</Text>
+    </>
+  )
+}
 
 const Timer = () => {
   const [duration, setDuration] = useState(50)
-  const timerRef = useRef<() => void>(() => {})
+  const [reset, setReset] = useState(false)
 
   return (
     <Fieldset miw="30%" h="100%">
-      <TimerDisplay ref={timerRef} duration={duration} />
+      <TimerDisplay duration={duration} reset={reset} />
 
       <Text mt="1rem">Duration:</Text>
       <Slider
@@ -79,7 +71,7 @@ const Timer = () => {
       />
 
       <Center mt="1rem">
-        <Button onClick={() => timerRef.current()}>Reset</Button>
+        <Button onClick={() => setReset((prev) => !prev)}>Reset</Button>
       </Center>
     </Fieldset>
   )
