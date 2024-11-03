@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Container from '$lib/components/Container.svelte';
+
 	let elapsed = $state(1);
 	let duration = $state(50);
 
@@ -13,12 +15,11 @@
 	});
 </script>
 
-<div class="grid grid-cols-1 gap-6">
+<Container>
 	<label class="label"
-		>Elapsed: <progress class="progress ml-5" value={percentage} max={100}></progress></label
+		>Elapsed ({elapsed.toFixed(1)}s):
+		<progress class="progress ml-5" value={percentage} max={100}></progress></label
 	>
-
-	<span class="text-white">{elapsed.toFixed(1)} s</span>
 
 	<label class="label">
 		Duration ({duration}s):
@@ -38,4 +39,4 @@
 			elapsed = 0;
 		}}>Reset</button
 	>
-</div>
+</Container>

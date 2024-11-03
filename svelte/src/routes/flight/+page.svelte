@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Container from '$lib/components/Container.svelte';
 	import dayjs from 'dayjs';
 
 	const opts = [
@@ -28,7 +29,10 @@
 	});
 </script>
 
-<form bind:this={form} class="grid grid-cols-2 grid-rows-3 gap-6">
+<form
+	bind:this={form}
+	class="grid grid-cols-2 grid-rows-3 gap-6 rounded-lg border border-gray-300 p-5 shadow shadow-blue-500"
+>
 	<select class="select col-span-2" bind:value={selected}>
 		{#each opts as { label, value } (value)}
 			<option {value} selected={value === selected}>{label}</option>

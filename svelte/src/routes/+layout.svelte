@@ -5,6 +5,10 @@
 	let { children } = $props();
 </script>
 
+<svelte:head>
+	<title>7GUI Svelte</title>
+</svelte:head>
+
 <div class="flex min-h-screen flex-col overflow-hidden">
 	<Navbar />
 	<main
